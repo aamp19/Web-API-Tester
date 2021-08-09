@@ -6,7 +6,7 @@ const OscarpatientsDocuments = () => {
     const [error, setError] = useState('')
     async function apiRequest(e) {
         e.preventDefault()
-        axios.get(`http://kennedy-dev1.gojitech.systems/api/v1/oscar/patients/14/documents`)
+        axios.get(`https://kennedy-dev1.gojitech.systems/api/v1/oscar/patients/14/documents`)
             .then((res) => {
                 console.log(res.status)
                 if (res.status === 200) {
