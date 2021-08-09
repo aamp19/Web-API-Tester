@@ -7,7 +7,7 @@ const ProviderAPI = () => {
     const [error, setError] = useState('')
     async function apiRequest(e) {
         e.preventDefault()
-        axios.get(`http://kennedy-dev1.gojitech.systems/api/v1/oscarrest/providers`)
+        axios.get(`https://kennedy-dev1.gojitech.systems/api/v1/oscarrest/providers`)
             .then((res) => {
                 console.log(res.status)
                 if (res.status === 200) {
