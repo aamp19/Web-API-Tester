@@ -4,7 +4,7 @@ let patientId = Math.floor(Math.random() * 10)
 
 async function apiRequest(e) {
     e.preventDefault()
-    let res = await axios.post(`http://kennedy-dev1.gojitech.systems/api/v1/oscarrest/notes`,
+    let res = await axios.post(`https://kennedy-dev1.gojitech.systems/api/v1/oscarrest/notes`,
         {
             "patientId": `${patientId}`,
             "note": "Test notes"
