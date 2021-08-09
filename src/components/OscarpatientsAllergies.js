@@ -6,7 +6,7 @@ const OscarpatientsAllergies = () => {
     const [error, setError] = useState('')
     async function apiRequest(e) {
         e.preventDefault()
-        axios.get(`http://kennedy-dev1.gojitech.systems/api/v1/oscar/patients/14/allergies`)
+        axios.get(`https://kennedy-dev1.gojitech.systems/api/v1/oscar/patients/14/allergies`)
             .then((res) => {
                 console.log(res.status)
                 if (res.status === 200) {
