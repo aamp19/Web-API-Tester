@@ -8,7 +8,7 @@ const Prescription = () => {
     const [error, setError] = useState('')
     async function apiRequest(e) {
         e.preventDefault()
-        axios.post(`http://kennedy-dev1.gojitech.systems/api/v1/oscarrest/prescription/`, {
+        axios.post(`https://kennedy-dev1.gojitech.systems/api/v1/oscarrest/prescription/`, {
             "patientId": 0,
             "drugs": [
                 {
