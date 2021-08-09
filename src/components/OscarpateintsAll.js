@@ -6,7 +6,7 @@ const OscarpateintsAll = () => {
     const [error, setError] = useState('')
     async function apiRequest(e) {
         e.preventDefault()
-        axios.get(`http://kennedy-dev1.gojitech.systems/api/v1/oscar/patients/all`)
+        axios.get(`https://kennedy-dev1.gojitech.systems/api/v1/oscar/patients/all`)
             .then((res) => {
                 console.log(res.status)
                 if (res.status === 200) {
