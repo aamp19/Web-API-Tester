@@ -6,7 +6,7 @@ const Patient = () => {
     const [error, setError] = useState('')
     async function apiRequest(e) {
         e.preventDefault()
-        await axios.get(`http://kennedy-dev1.gojitech.systems/api/v1/oscarrest/patients?skip=4&take=3&keyword=test`)
+        await axios.get(`https://kennedy-dev1.gojitech.systems/api/v1/oscarrest/patients?skip=4&take=3&keyword=test`)
             .then((res) => {
                 console.log(res.status)
                 if (res.status === 200) {
