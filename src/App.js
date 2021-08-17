@@ -15,7 +15,6 @@ import OscarpatientsDocuments from './components/OscarpatientsDocuments';
 import OscarpateintsMeasurements from './components/OscarpateintsMeasurements';
 import OscarpatientsForm from './components/OscarpatientsForm';
 import OscarpatientsLabresults from './components/OscarpatientsLabresults';
-import Testall from './components/Testall';
 import React from "react"
 function App() {
   const callbackRef = React.useRef();
