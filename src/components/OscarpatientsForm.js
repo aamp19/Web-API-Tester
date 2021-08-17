@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const OscarpatientsForm = () => {
+const OscarpatientsForm = (props) => {
     const [data, setData] = useState()
     const [error, setError] = useState('')
-    async function apiRequest(e) {
-        e.preventDefault()
+    props.OscarPatientsFormCallback(apiRequest)
+    async function apiRequest() {
+        // e.preventDefault()
         axios.get(`https://kennedy-dev1.gojitech.systems/api/v1/oscar/patients/14/forms`)
             .then((res) => {
                 console.log(res.status)
@@ -20,22 +21,22 @@ const OscarpatientsForm = () => {
     }
     return (
         <div>
-            <form>
-                <table>
-                    <tr>
-                        <td><b><span>GET:   </span> /api/v1/oscar/patients/14/forms</b></td>
-                        <td><button id="oscarpatient" onClick={apiRequest}>Test</button></td>
-                    </tr>
-                </table>
-                {data ? [data].map(e =>
 
-                    <p>{JSON.stringify(e)}</p>
-                    // <p>hello world</p>
+            <table>
+                <tr>
+                    <td><b><span>GET:   </span> /api/v1/oscar/patients/14/forms</b></td>
+                    <td><button id="oscarpatient" onClick={apiRequest}>Test</button></td>
+                </tr>
+            </table>
+            {data ? [data].map(e =>
 
-                ) : <div></div>}
-                {/* <p>{data}</p> */}
-                {error && JSON.stringify(error)}
-            </form>
+                <p>{JSON.stringify(e)}</p>
+                // <p>hello world</p>
+
+            ) : <div></div>}
+            {/* <p>{data}</p> */}
+            {error && JSON.stringify(error)}
+
         </div>
     )
 }
