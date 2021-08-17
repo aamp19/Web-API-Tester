@@ -3,11 +3,12 @@ import axios from 'axios'
 
 
 
-const Prescription = () => {
+const Prescription = (props) => {
     const [data, setData] = useState()
     const [error, setError] = useState('')
-    async function apiRequest(e) {
-        e.preventDefault()
+    props.prescriptionCallback(apiRequest)
+    async function apiRequest() {
+        // e.preventDefault()
         axios.post(`https://kennedy-dev1.gojitech.systems/api/v1/oscarrest/prescription/`, {
             "patientId": 0,
             "drugs": [
@@ -59,22 +60,22 @@ const Prescription = () => {
     }
     return (
         <div>
-            <form>
-                <table>
-                    <tr>
-                        <td><b><span class="post">POST:</span> /api/v1/oscarrest/prescription</b></td>
-                        <td><button id="oscarrest-presciption" onClick={apiRequest}>Test</button></td>
-                    </tr>
-                </table>
-                {data ? [data].map(e =>
+            {/* <form> */}
+            <table>
+                <tr>
+                    <td><b><span class="post">POST:</span> /api/v1/oscarrest/prescription</b></td>
+                    <td><button id="oscarrest-presciption" onClick={apiRequest}>Test</button></td>
+                </tr>
+            </table>
+            {data ? [data].map(e =>
 
-                    <p>{JSON.stringify(e)}</p>
-                    // <p>hello world</p>
+                <p>{JSON.stringify(e)}</p>
+                // <p>hello world</p>
 
-                ) : <div></div>}
-                {/* <p>{data}</p> */}
-                {error && JSON.stringify(error)}
-            </form>
+            ) : <div></div>}
+            {/* <p>{data}</p> */}
+            {error && JSON.stringify(error)}
+            {/* </form> */}
 
         </div>
     )
