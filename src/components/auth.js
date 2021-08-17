@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const Auth = () => {
+export const Auth = (props) => {
 
     const [data, setData] = useState()
     const [error, setError] = useState('')
-    async function apiRequest(e) {
-        e.preventDefault()
+    props.authCallback(apiRequest)
+
+    async function apiRequest() {
+        // e.preventDefault()
         axios.get(`https://kennedy-dev1.gojitech.systems/api/v1/oscarrest/auth`)
             .then((res) => {
                 console.log(res.status)
@@ -21,21 +23,21 @@ const Auth = () => {
     }
     return (
         <div>
-            <form>
-                <table>
-                    <tr>
-                        <td><b><span>GET:   </span>/api/v1/oscarrest/auth</b></td>
-                        <td><button id="oscarrest-auth" onClick={apiRequest}>Test</button></td>
-                    </tr>
-                </table>
-                {data ? [data].map(e =>
+            {/* <form> */}
+            <table>
+                <tr>
+                    <td><b><span>GET:   </span>/api/v1/oscarrest/auth</b></td>
+                    <td><button id="oscarrest-auth" onClick={apiRequest}>Test</button></td>
+                </tr>
+            </table>
+            {data ? [data].map(e =>
 
-                    <p>{JSON.stringify(e)}</p>
-                    // <p>hello world</p>
+                <p>{JSON.stringify(e)}</p>
+                // <p>hello world</p>
 
-                ) : <div></div>}
-                {error && JSON.stringify(error)}
-            </form>
+            ) : <div></div>}
+            {error && JSON.stringify(error)}
+            {/* </form> */}
         </div>
     )
 }
