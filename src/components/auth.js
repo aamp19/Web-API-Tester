@@ -32,7 +32,7 @@ export const Auth = (props) => {
             </table>
             {data ? [data].map(e =>
 
-                <p>{JSON.stringify(e)}</p>
+                <p className="success">{JSON.stringify(e)}</p>
                 // <p>hello world</p>
 
             ) : <div></div>}
